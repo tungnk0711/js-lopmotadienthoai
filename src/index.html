@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let Mobile = function (battery, draftMessage, inboxMessage, sentMessage) {
+        this.battery = battery;
+        this.draftMessage = draftMessage;
+        this.inboxMessage = inboxMessage;
+        this.sentMessage = sentMessage;
+        this.status = false;
+
+        this.getBattery = function () {
+            return this.battery;
+        }
+
+        this.getDraftMessage = function () {
+            return this.draftMessage;
+        }
+
+        this.getInboxMessage = function () {
+            return this.inboxMessage;
+        }
+
+        this.getSentMessage = function () {
+            return this.sentMessage;
+        }
+
+        this.setBattery = function (battery) {
+            this.battery = battery;
+        }
+
+        this.setDraftMessage = function (draftMessage) {
+            this.draftMessage = draftMessage;
+        }
+
+        this.setInboxMessage = function (inboxMessage) {
+            this.inboxMessage = inboxMessage;
+        }
+
+        this.setSentMessage = function (sentMessage) {
+            this.sentMessage = sentMessage;
+        }
+
+        // kiem tra trang thai
+        this.checkStatus = function () {
+            if(this.status == true){
+                alert('Dien thoai dang bat.');
+            }else{
+                alert('Dien thoai dang tat.');
+            }
+            this.battery--;
+        }
+
+        // cong tac
+        this.setOnOff = function () {
+            if(this.status == true){
+                this.status = false
+                alert('Dien thoai da tat.')
+            }else{
+                this.status = true;
+                alert('Dien thoai da bat.')
+            }
+            this.battery--;
+        }
+
+    };
+
+    let nokia8800 = new Mobile(100,'','','');
+
+    nokia8800.checkStatus();
+    alert(nokia8800.getBattery());
+
+    nokia8800.setOnOff();
+    alert(nokia8800.getBattery());
+
+    nokia8800.checkStatus();
+    alert(nokia8800.getBattery());
+
+</script>
+</body>
+</html>
